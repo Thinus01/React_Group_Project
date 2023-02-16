@@ -45,8 +45,8 @@ const MissionsSlice = createSlice({
     },
     [FetchMissions.rejected]: (state) => {
       state.isLoading = false;
-    }
-  }
-})
+    },
+  },
+});
 
 export default MissionsSlice.reducer;

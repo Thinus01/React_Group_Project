@@ -12,9 +12,9 @@ const Missions = () => {
 
   console.log(fetchedMissions.missions);
   return (
-    <div className='missions'>
-      <table className='missions-table'>
-        <thead className='mission-tbl-head'>
+    <div className="missions">
+      <table className="missions-table">
+        <thead className="mission-tbl-head">
           <tr>
             <th>Missions</th>
             <th>Description</th>
@@ -24,11 +24,11 @@ const Missions = () => {
         </thead>
         <tbody>
           {fetchedMissions.missions.map((mission, index) => (
-            <tr key={index} className='mission-details'>
+            <tr key={index} className="mission-details">
               <th>{mission.mission_name}</th>
               <td>{mission.description}</td>
-              <td><button type='button' className='member_status'>NOT A MEMBER</button></td>
-              <td><button type='submit' className='mission_status'>Join Mission</button></td>
+              <td><button type="button" className="member_status">NOT A MEMBER</button></td>
+              <td><button type="submit" className="mission_status">Join Mission</button></td>
             </tr>
           ))}
           ;
