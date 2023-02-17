@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom';
 import icon from '../images/planet.png';
 
 const Navbar = () => (
-  <nav>
-    <div>
-      <img src={icon} alt="logo" />
+  <nav className="navbar">
+    <div className="logo-head">
+      <img src={icon} className="logo" alt="logo" />
       <h3>Space Travelers Hub</h3>
     </div>
-    <ul>
+    <ul className="NavLinks">
       <li>
         <NavLink
           to="/"

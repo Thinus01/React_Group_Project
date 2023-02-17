@@ -6,20 +6,20 @@ const MyProfile = () => {
   // const missions = useSelector((state) => state.missions);
   return (
     <>
-      <div>
+      <div className="profile">
         {/* <table>
           <thead>
-            <tr>
+            <tr className="missions-profile">
               <th>
                 <h3>My Missions</h3>
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="activeMissions">
             {missions
               .filter((mission) => mission.reserved)
               .map((mission) => (
-                <tr key={mission.id}>
+                <tr key={mission.id} className="make-reseversations">
                   <p>{mission.name}</p>
                 </tr>
               ))}
@@ -28,17 +28,17 @@ const MyProfile = () => {
 
         <table>
           <thead>
-            <tr>
+            <tr className="rockets">
               <th>
                 <h3>My Rockets</h3>
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="reserveRocketsLink">
             {rockets
               .filter((rocket) => rocket.reserved)
               .map((rocket) => (
-                <tr key={rocket.id}>
+                <tr key={rocket.id} className="activeRockets">
                   <p>{rocket.rocketName}</p>
                 </tr>
               ))}

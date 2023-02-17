@@ -9,14 +9,14 @@ const Rocket = ({ rocket }) => {
     rocketName, description, flickrImages, reserved, id,
   } = rocket;
   return (
-    <div>
-      <img src={flickrImages} alt="rockets img" />
-      <div>
-        <h2>{rocketName}</h2>
-        <p>
+    <div className="rocketCard">
+      <img src={flickrImages} className="rocket-img" alt="rockets img" />
+      <div className="rocketContent">
+        <h2 className="rocketName">{rocketName}</h2>
+        <p className="rocketDesc">
           {
             reserved ? (
-              <span>Reserved</span>
+              <span className="status">Reserved</span>
             )
               : ('')
           }
@@ -24,10 +24,10 @@ const Rocket = ({ rocket }) => {
         </p>
         {
             reserved ? (
-              <button type="button" onClick={() => { dispatch(toggleRockets(id)); }}>Cancel Reservation</button>
+              <button type="button" className="cancel" onClick={() => { dispatch(toggleRockets(id)); }}>Cancel Reservation</button>
             )
               : (
-                <button type="button" onClick={() => { dispatch(toggleRockets(id)); }}>Reserve Rocket</button>
+                <button type="button" className="reserve" onClick={() => { dispatch(toggleRockets(id)); }}>Reserve Rocket</button>
               )
           }
       </div>
