@@ -1,3 +1,5 @@
-// import React, { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { fetchRockets, bookRockets } from '../../redux/rockets/rocketSlice';
+const rockets = () => (
+  <h1>ROCKETS</h1>
+);
+
+export default rockets;

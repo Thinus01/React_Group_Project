@@ -1,26 +1,23 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { Routes, Route, NavLink } from 'react-router-dom';
-import Rockets from './components/rockets';
-import Missions from './components/missions';
-import MyProfile from './components/profile';
+import Navbar from './components/Navbar';
+import Missions from './components/missions/Missions';
+import Rockets from './components/rockets/Rockets';
+import Profile from './components/Profile';
 
 function App() {
   return (
-    <>
-      <nav>
-        <h1>Space Travelers Hub</h1>
-        <ul>
-          <li><NavLink className="Rockets" to="/">Rockets</NavLink></li>
-          <li><NavLink className="Missions" to="/missions">Missions</NavLink></li>
-          <li><NavLink className="Profile" to="/profile">My Profile</NavLink></li>
-        </ul>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Rockets />} />
-        <Route path="/missions" element={<Missions />} />
-        <Route path="/profile" element={<MyProfile />} />
-      </Routes>
-    </>
+    <div className="App">
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Rockets />} />
+          <Route path="/missions" element={<Missions />} />
+          <Route path="/my-profile" element={<Profile />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
