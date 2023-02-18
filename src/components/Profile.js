@@ -1,52 +1,55 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const MyProfile = () => {
-  const rockets = useSelector((state) => state.rocket);
-  // const missions = useSelector((state) => state.missions);
+const Profile = () => {
+  const { rockets } = useSelector((state) => state.rockets);
+  const reservedRockets = rockets.filter((rocks) => rocks.active);
+  const missions = useSelector((state) => state.missions.missions);
+  const joinedMissions = missions.filter((i) => i.reserved);
+
   return (
-    <>
-      <div className="profile">
-        {/* <table>
-          <thead>
-            <tr className="missions-profile">
-              <th>
-                <h3>My Missions</h3>
-              </th>
-            </tr>
-          </thead>
-          <tbody className="activeMissions">
-            {missions
-              .filter((mission) => mission.reserved)
-              .map((mission) => (
-                <tr key={mission.id} className="make-reseversations">
-                  <p>{mission.name}</p>
-                </tr>
-              ))}
-          </tbody>
-        </table> */}
-
-        <table>
-          <thead>
-            <tr className="rockets">
-              <th>
-                <h3>My Rockets</h3>
-              </th>
-            </tr>
-          </thead>
-          <tbody className="reserveRocketsLink">
-            {rockets
-              .filter((rocket) => rocket.reserved)
-              .map((rocket) => (
-                <tr key={rocket.id} className="activeRockets">
-                  <p>{rocket.rocketName}</p>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+    <div className="profile">
+      <div className="missions-profile">
+        <h3>My Missions</h3>
+        <div className="activeMissions">
+          {!joinedMissions.length
+            && (
+              <div className="no-missions">
+                <p>No active missions</p>
+                <p className="make-reseversations">
+                  <Link to="/missions" className="reserve-btn">
+                    Make Reservations
+                  </Link>
+                </p>
+              </div>
+            )}
+          <ul>
+            {joinedMissions.map((mission) => (
+              <li key={mission.id}>{mission.name}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </>
+      <div className="rockets">
+        <h3>My Rockets</h3>
+        {reservedRockets.length === 0 ? (
+          <div className="noReservations">
+            <p>No Reservations Made</p>
+            <Link className="reserveRocketsLink" to="/">Make Reservations</Link>
+          </div>
+        ) : (
+          <div className="activeRockets">
+            <ul>
+              {reservedRockets.map((rocket) => (
+                <li key={rocket.id}>{rocket.rocket_name}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
-export default MyProfile;
+export default Profile;
